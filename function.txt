@@ -1,0 +1,137 @@
+
+function greetUser(name: string, greeting: string="hello"): string {
+    return `${greeting}, ${name}!`;
+}
+console.log(greetUser("varman")); 
+console.log(greetUser("sathyan", "Hi"));
+
+
+
+const multiply = (x: number, y: number): number => x * y;
+console.log(multiply(4,5));
+
+
+function concat(param1: string | string[], param2?: string): string {
+    if (typeof param1 === "string" && typeof param2 === "string") {
+        return param1 + param2;
+    } else if (Array.isArray(param1)) {
+        return param1.join("");
+    }
+    throw new Error("Invalid arguments");
+}
+
+
+function concati(param1: string, param2: string): string {
+    return param1 + param2;
+}
+
+console.log(concati("sathya ", "balan!"));
+
+
+
+function isEven(num: number): boolean {
+    return num % 2 === 0;
+}
+
+console.log(isEven(19));
+console.log(isEven(196));
+
+
+function diff(num1: number, num2: number): number {
+    return num1 - num2;
+};
+console.log(diff(196,96));
+
+
+function sumNumbers(...numbers: number[]): number {
+    return numbers.reduce((sum, num) => sum + num, 0);
+}
+console.log(sumNumbers(196,96));
+console.log(sumNumbers(196,96,768,8,8,8));
+
+
+function logMessage(message: string): void {
+    console.log(message);
+}
+
+logMessage("222 sathyanbalan");
+
+
+
+ function combine(first: string, second: number): string {
+    return first + second.toString();
+}
+ console.log(combine("222 sathyanbalan",5674));
+
+
+ type BinaryOperation = (a: number, b: number) => number;
+ const multiplly: BinaryOperation = (x, y) => x * y;
+ console.log(multiplly(4, 5));
+
+
+
+ function getFullName(firstName: string, lastName?: string): string {
+    return lastName ? `${firstName} ${lastName}` : firstName;
+}
+console.log(getFullName("sathyan","balan"));
+
+function processData(num: number, callback: (value: number) => number): number {
+    return callback(num);
+}
+function double(n: number): number {
+    return n * 2;
+}
+
+console.log(processData(5, double)); 
+
+
+
+interface Dictionary {
+    [key: string]: number;
+}
+
+const scoreBoard: Dictionary = {
+    Alice: 100,
+    Bob: 80,
+    Charlie: 95
+};
+
+console.log(scoreBoard.Alice);
+console.log(scoreBoard["Bob"]);
+
+scoreBoard["David"] = 90;
+console.log(scoreBoard.David);
+
+scoreBoard.Alice = 105;
+console.log(scoreBoard.Alice);
+
+for (const player in scoreBoard) {
+    console.log(`${player}: ${scoreBoard[player]}`);
+}
+
+
+interface AddFunction {
+    (x: number, y: number): number;
+}
+
+const addFunction: AddFunction = (x, y) => x + y;
+
+console.log(addFunction(3, 7)); 
+
+
+
+
+
+
+interface Greeter {
+    greet(): string;
+}
+
+class PersonGreeter implements Greeter {
+    greet(): string {
+        return "Hello, world!";
+    }
+}
+
+const greeter = new PersonGreeter();
+console.log(greeter.greet()); 
